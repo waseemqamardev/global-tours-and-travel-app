@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "921166745685",
+    "project_id": "globalapp-e40cf",
+    "storage_bucket": "globalapp-e40cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921166745685:android:6b3fd08deddcd5f36384dc",
+        "android_client_info": {
+          "package_name": "com.example.gobal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921166745685-rg0ehks3s92014gvagig7fpms4h8c665.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXMuhq_5REqaXetq2XeqIU4xiH0Sxyw8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921166745685-rg0ehks3s92014gvagig7fpms4h8c665.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
