@@ -26,30 +26,6 @@ class _UpdatePackageState extends State<UpdatePackage> {
   final firebase = FirebaseFirestore.instance.collection("Packages");
 
 
-  // update() async {
-  //   try {
-  //     await firebase.doc(docId).update({
-  //       "Cname": Cname.text.trim(),
-  //       "City": City.text.trim(),
-  //       "Description":Desc.text.trim(),
-  //       "Days":Days.text.trim(),
-  //       "Distance":Distance.text.trim(),
-  //       "Price":Price.text.trim(),
-  //
-  //
-  //     }).then((value) {
-  //       Fluttertoast.showToast(
-  //         msg: 'Package submitted successfully',
-  //         toastLength: Toast.LENGTH_SHORT,
-  //         gravity: ToastGravity.BOTTOM,
-  //         backgroundColor: Colors.grey[800],
-  //         textColor: Colors.white,
-  //       );
-  //     });
-  //   } catch (e) {
-  //     print(e);
-  //
-
   void updatePackageData() {
     String cname = Cname.text.trim();
     String city = City.text.trim();

@@ -243,35 +243,6 @@ Future<void> adminlogin(context,TextEditingController adminEmail,TextEditingCont
 
   try {
     print('11');
-    // await FirebaseFirestore.instance
-    //     .collection("Admin")
-    //     .doc("adminlogin")
-    //     .snapshots()
-    //     .forEach((element) {
-    //       try{
-    //         print('2224444');
-    //         print('${element.data()!["adminEmail"]}');
-    //         print('${element.data()!["adminPass"]}');
-    //         if (element.data()?["adminEmail"] == adminEmail.text.trim() &&
-    //             element.data()?["adminPass"] == adminPass.text.trim()) {
-    //           print('2222');
-    //           Fluttertoast.showToast(msg: "Admin login successfully:");
-    //           Navigator.pushAndRemoveUntil(
-    //               context,
-    //               MaterialPageRoute(builder: (context) => Adminpanel()),
-    //                   (route) => false);
-    //         }
-    //       }catch(e){
-    //         print(e.toString());
-    //       }
-    //
-    // })
-    //     .whenComplete(() {
-    //   print('comleted');
-    // })
-    //     .catchError((e) {
-    //   Fluttertoast.showToast(msg: e!.message);
-    // });
 
     await FirebaseAuth.instance.signInWithEmailAndPassword(email: adminEmail.text.trim(), password: adminPass.text.trim()).then((value) {
 
