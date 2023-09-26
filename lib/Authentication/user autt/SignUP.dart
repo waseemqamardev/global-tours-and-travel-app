@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:global/Utils/Firebase.dart';
 
-
-
 import 'UserLogin.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -11,7 +9,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
   final formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
@@ -92,7 +89,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: 16.0),
                   TextFormField(
                     controller: _countryController,
-
                     decoration: InputDecoration(
                       labelText: 'Country',
                       border: OutlineInputBorder(),
@@ -109,7 +105,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   ),
                   SizedBox(height: 16.0),
-
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -125,7 +120,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       if (value!.isEmpty) {
                         return "Email is empty";
                       } else if (!RegExp(
-                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                              r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                           .hasMatch(value)) {
                         return "Email is not valid";
                       }
@@ -142,33 +137,30 @@ class _SignUpPageState extends State<SignUpPage> {
                           return "password must be greater than 7";
                         }
                         return null;
-
                       },
-                      decoration:  InputDecoration(
-                          hintText: 'password',
-                          fillColor: const Color(0xffF8F9FA),
-                          filled: true,
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              _obscureText = !_obscureText;
-                              setState(() {});
-                            },
-                            icon: Icon(
-                              // Based on passwordVisible state choose the icon
-                              _obscureText ? Icons.visibility_off : Icons.visibility,
-                              color: Theme.of(context).primaryColorDark,
-                            ),
+                      decoration: InputDecoration(
+                        hintText: 'password',
+                        fillColor: const Color(0xffF8F9FA),
+                        filled: true,
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            _obscureText = !_obscureText;
+                            setState(() {});
+                          },
+                          icon: Icon(
+                            // Based on passwordVisible state choose the icon
+                            _obscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Theme.of(context).primaryColorDark,
                           ),
-                          prefixIcon: const Icon(
-                            Icons.lock_open,
-                            color: Color(0xff323F4B),
-                          ),
+                        ),
+                        prefixIcon: const Icon(
+                          Icons.lock_open,
+                          color: Color(0xff323F4B),
+                        ),
                         border: OutlineInputBorder(),
-
-
-                      )
-                  ),
-
+                      )),
                   SizedBox(height: 32.0),
                   Center(
                     child: Container(
@@ -176,14 +168,22 @@ class _SignUpPageState extends State<SignUpPage> {
                       width: 300,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color:Theme.of(context).primaryColor,
+                        color: Theme.of(context).primaryColor,
                       ),
-                      child:  Center(
+                      child: Center(
                         child: TextButton(
                           onPressed: () async {
-                            if(formKey.currentState!.validate()){
-          await FirebaseServices.signUp(_emailController.text.trim(), _passcontroler.text.trim(), _nameController.text.trim(), _countryController.text.trim(), _phoneController.text.toString());
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Userlogin()));
+                            if (formKey.currentState!.validate()) {
+                              await FirebaseServices.signUp(
+                                  _emailController.text.trim(),
+                                  _passcontroler.text.trim(),
+                                  _nameController.text.trim(),
+                                  _countryController.text.trim(),
+                                  _phoneController.text.toString());
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Userlogin()));
                             }
                           },
                           child: Text(
@@ -200,7 +200,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: 16.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
+                    children: [
                       Text(
                         "Already have an account?",
                         textAlign: TextAlign.center,
@@ -209,19 +209,23 @@ class _SignUpPageState extends State<SignUpPage> {
                             fontFamily: 'Rubik Regular',
                             color: Color(0xff4C5980)),
                       ),
-                      TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Userlogin(),));
-                      },
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Userlogin(),
+                              ));
+                        },
                         child: Text(
                           "login",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 16,
                               fontFamily: 'Rubik Medium',
-                              color:Theme.of(context).primaryColor),
+                              color: Theme.of(context).primaryColor),
                         ),
                       ),
-
                     ],
                   ),
                 ],
