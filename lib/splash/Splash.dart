@@ -14,7 +14,7 @@ class Splash extends StatefulWidget {
 }
 
 class SplashState extends State<Splash> {
-  // static const String KEYLOGIN = "login";
+
   double height = 0;
   double width = 0;
 
